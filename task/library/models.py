@@ -1,5 +1,4 @@
 from django.db import models
-from django.utils import timezone
 
 
 class User(models.Model):
@@ -18,4 +17,4 @@ class Book(models.Model):
     year = models.IntegerField()
 
     def __str__(self):
-        return f'{self.title} - {self.author} ({self.publication_data})'
+        return f'{self.title} - {self.author} ({self.year})'
