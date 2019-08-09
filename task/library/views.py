@@ -53,3 +53,15 @@ class DetailUserView(View):
         return render(request, 'user_details.html', context=context)
 
 
+def book_edit(request, pk, book_pk):
+    book = get_object_or_404(Book, pk=book_pk)
+    if request.method == "POST":
+        form = BookForm(request.POST, instance=book)
+        if form.is_valid():
+            film = form.save(commit=False)
+            film.save()
+            return redirect('user_details', pk=pk)
+    else:
+        form = BookForm(instance=book)
+    return render(request, 'book_edit.html', {'form': form})
+
