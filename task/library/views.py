@@ -14,16 +14,12 @@ class UserListView(View):
         return render(request, 'users_list.html', context=context)
 
     def post(self, request):
-        context = {
-            'users': User.objects.all(),
-            'form': UserForm()
-        }
         form = UserForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
             user.save()
             return redirect('users_list')
-        return render(request, 'users_list.html', context=context)
+        return render(request, 'users_list.html', {'form': form})
 
 
 class DetailUserView(View):
