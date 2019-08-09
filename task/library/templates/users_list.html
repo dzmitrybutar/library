@@ -3,6 +3,6 @@
 {% block content %}
     <h2>Users:</h2>
     {% for user in users %}
-        <h1><a href="">{{ user }}</a></h1>
+        <h1><a href="{% url 'user_detail_url' pk=user.pk %}">{{ user }}</a></h1>
     {% endfor %}
 {% endblock %}
