@@ -60,4 +60,3 @@ def book_edit(request, pk, book_pk):
     else:
         form = BookForm(instance=book)
     return render(request, 'book_edit.html', {'form': form})
-
