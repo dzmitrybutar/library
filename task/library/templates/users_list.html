@@ -3,20 +3,14 @@
 {% block content %}
     <h1>Users:</h1>
     {% for user in users %}
-        <h2><a href="{% url 'user_detail_url' pk=user.pk %}">{{ user }}</a></h2>
+        <h2><a href="{% url 'user_details' pk=user.pk %}">{{ user.user }}</a></h2>
     {% endfor %}
 
     <h1>Add new user:</h1>
         <form action="{% url 'users_list' %}" method="post">
             {% csrf_token %}
-            {% for field in form %}
-                {% if field.errors %}
-                     {{ field.errors }}
-                {% endif %}
-                {{ field.label }}
-                {{ field }}
-            {% endfor %}
-        <button type="submit">Save</button>
-    </form>
+            {{ form.as_p }}
+            <button type="submit">Save</button>
+        </form>
 {% endblock %}
 
