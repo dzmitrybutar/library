@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        {% if title %}
+            <title>{{ title }} - Library</title>
+        {% else %}
+            <title>Welcome to Library</title>
+        {% endif %}
+    </head>
+    <body>
+        <h2><a href="/">Library</a></h2>
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>
