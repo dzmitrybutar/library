@@ -5,7 +5,7 @@
         <h2>{{ user.user }} book list:</h2>
     </div>
     {% for book in books %}
-        <h3><a href="">{{ book.title }}</a></h3>
+        <h3><a href="{% url 'book_edit' pk=user.pk book_pk=book.pk %}">{{ book.title }}</a></h3>
         <p>Author: {{ book.author }}</p>
         <p>Description: {{ book.description }}</p>
         <p>Pages: {{ book.pages }}</p>
